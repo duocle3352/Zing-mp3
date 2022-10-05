@@ -1,0 +1,42 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
+@import 'GridSytem.scss';
+
+:root {
+    // --primary-color: #2fcc72;
+    --black: #000;
+    --white: #fff;
+    --text-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizespeed;
+    color: var(--text-color);
+    background-color: #170f23;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
