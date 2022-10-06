@@ -1,0 +1,99 @@
+.wrapper {
+    width: 240px;
+    height: 100vh;
+    background-color: var(--left-bar-bg);
+    overflow: hidden;
+}
+
+// logo
+.logo-box {
+    display: flex;
+    align-items: center;
+
+    height: 70px;
+    padding: 0 25px;
+}
+
+.logo-img {
+    height: 34px;
+}
+
+// separate
+.separate {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        right: 25px;
+        left: 25px;
+        height: 1px;
+        background-color: var(--border-primary);
+    }
+}
+
+// nav-cover
+.nav-cover {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+// left bar banner
+.vip-banner {
+    margin: 10px 20px;
+    padding: 15px 8px;
+    text-align: center;
+    border-radius: 8px;
+    background-image: linear-gradient(117deg, #5a4be7, #c86dd7 102%);
+}
+
+.banner-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.67;
+    color: var(--primary-color);
+}
+
+// sub-nav
+.sub-nav__content {
+    position: relative;
+
+    &:hover .sub-nav__icon {
+        display: block;
+    }
+}
+
+.sub-nav__title {
+    font-size: 1.2rem;
+    margin: 0 28px 8px;
+}
+
+.sub-nav__icon {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    right: 30px;
+    font-size: 1.2rem;
+}
+
+// create playlist
+.create-playlist {
+    padding: 0 29px;
+    border-top: 1px solid var(--border-primary);
+}
+
+.create-playlist__btn {
+    background-color: transparent;
+    height: 54px;
+    color: var(--primary-color);
+}
+
+.create-playlist__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-left: 8px;
+}

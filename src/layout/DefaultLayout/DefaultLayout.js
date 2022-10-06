@@ -1,13 +1,19 @@
+import classnames from 'classnames/bind';
 import { Header } from '../components/Header';
 import { LeftBar } from '../components/LeftBar';
+import style from './DefaultLayout.module.scss';
+
+const cx = classnames.bind(style);
 
 function DefaultLayout({ children }) {
     return (
-        <>
-            <Header />
+        <div className={cx('container', 'grid')}>
             <LeftBar />
-            <div className="container">{children}</div>
-        </>
+            <div className={cx('content')}>
+                <Header />
+                <div>{children}</div>
+            </div>
+        </div>
     );
 }
 

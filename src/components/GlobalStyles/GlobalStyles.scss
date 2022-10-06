@@ -3,10 +3,15 @@
 @import 'GridSytem.scss';
 
 :root {
-    // --primary-color: #2fcc72;
-    --black: #000;
+    --black: #32323d;
     --white: #fff;
-    --text-color: #fff;
+    --primary-color: #fff;
+    --second-primary-color: #7200a1;
+    --text-color: #dadada;
+    --border-primary: hsla(0, 0%, 100%, 0.1);
+
+    --left-bar-bg: #231b2e;
+    --nav-active-bg: #ffffff1a;
 }
 
 * {
