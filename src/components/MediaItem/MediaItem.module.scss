@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.media-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.media-title {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.media-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary-color);
+}

@@ -1,4 +1,38 @@
 .wrapper {
-    width: 100%;
-    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 240px;
+    z-index: 999;
+
+    height: 70px;
+    padding: 0 59px;
+    background-color: transparent;
+}
+
+.header-tool {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.page-control__btn {
+    display: flex;
+    justify-content: flex-start;
+
+    width: 44px;
+    height: 24px;
+    color: var(--text-color);
+    font-size: 2rem;
+    background-color: transparent;
+}
+
+.page-control__btn.disable {
+    opacity: 0.4;
+    user-select: none;
+    cursor: default;
 }
