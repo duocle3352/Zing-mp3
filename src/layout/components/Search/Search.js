@@ -20,7 +20,7 @@ function Search() {
     const [songsResult, setSongsResult] = useState([]);
     const [playlistsResult, setPlaylistsResult] = useState([]);
     const [showLoading, setShowLoading] = useState(false);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
 
     const debounceValue = useDebounce(searchValue, 800);
 

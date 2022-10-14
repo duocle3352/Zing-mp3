@@ -11,7 +11,7 @@
     &:focus-within {
         border-bottom-left-radius: unset;
         border-bottom-right-radius: unset;
-        background-color: #34224f;
+        background-color: var(--primary-bg);
     }
 }
 
@@ -46,7 +46,7 @@
 // search-result
 .search-result-content {
     width: 540px;
-    background-color: #34224f;
+    background-color: var(--primary-bg);
     padding: 13px 10px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -66,7 +66,13 @@
 
 .result-item {
     padding: 8px 10px;
+    margin-right: 6px;
     list-style: none;
+
+    &:hover {
+        background-color: var(--alpha-bg);
+        border-radius: 4px;
+    }
 }
 
 .search-loading {

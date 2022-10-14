@@ -36,3 +36,152 @@
     user-select: none;
     cursor: default;
 }
+
+// right toll
+.toll-item__btn {
+    background-color: transparent;
+}
+
+.toll-item,
+.toll-item__btn {
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.toll-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    background-color: var(--alpha-bg);
+}
+
+.toll-item + .toll-item {
+    margin-left: 12px;
+}
+
+// header menu
+.menu-content {
+    width: 240px;
+    padding: 10px 0;
+    border-radius: 8px;
+    background-color: var(--primary-bg);
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
+    z-index: 5;
+}
+
+.menu-box {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        height: 1px;
+        background-color: var(--border-primary);
+    }
+}
+
+.menu-item {
+    list-style: none;
+}
+
+.menu-item__btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    position: relative;
+    width: 100%;
+    color: var(--text-color);
+    background-color: transparent;
+    padding: 12px 17px 12px 20px;
+
+    &:hover {
+        background-color: var(--alpha-bg);
+    }
+
+    &:hover .sub-menu {
+        display: block;
+    }
+}
+
+.menu-item__btn.menu-item__btn-other {
+    color: var(--text-secondary-color);
+
+    &:hover {
+        color: var(--text-color);
+        background-color: var(--alpha-bg);
+    }
+}
+
+.menu-left-icon {
+    display: flex;
+    font-size: 1.8rem;
+    width: 30px;
+}
+
+.menu-item__title {
+    font-size: 1.4rem;
+}
+
+.menu-right-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+}
+
+// sub menu
+.sub-menu {
+    position: absolute;
+    left: -236px;
+    top: 0;
+
+    display: none;
+}
+
+.submenu-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+
+    &:hover {
+        background-color: var(--alpha-bg);
+    }
+}
+
+.sub-menu__body {
+    text-align: start;
+    width: 192px;
+}
+
+.sub-menu__title {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.sub-menu__desc {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--text-secondary-color);
+    padding-right: 6px;
+    margin-top: 6px;
+}
+
+.sub-menu__icon {
+    font-size: 1.8rem;
+}
+
+// header-avatar
+.header-avatar {
+    width: 100%;
+}

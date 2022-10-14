@@ -4,11 +4,15 @@
 
 :root {
     --black: #32323d;
-    --white: #fff;
     --primary-color: #fff;
     --second-primary-color: #7200a1;
+    // bg
+    --primary-bg: #34224f;
+    --alpha-bg: hsla(0, 0%, 100%, 0.1);
+    // text
     --text-color: #dadada;
     --text-secondary-color: hsla(0, 0%, 100%, 0.5);
+    // border
     --border-primary: hsla(0, 0%, 100%, 0.1);
 
     --left-bar-bg: #231b2e;
@@ -66,4 +70,9 @@ a {
 // border
 .br-999 {
     border-radius: 999px !important;
+}
+
+// custom tippy class
+.tippy-content {
+    font-size: 1.1rem;
 }
