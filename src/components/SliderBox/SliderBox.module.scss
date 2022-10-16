@@ -1,0 +1,45 @@
+.wrapper {
+    position: relative;
+    overflow: hidden;
+
+    &:hover .gallery-control {
+        display: block;
+    }
+}
+
+.gallery-control {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    right: unset;
+    transform: translateY(-50%);
+
+    display: none;
+    width: 55px;
+    height: 55px;
+    font-size: 3rem;
+    color: var(--text-color);
+    background-color: var(--alpha-bg);
+    z-index: 2;
+}
+
+.gallery-control.gallery-control__right {
+    left: unset;
+    right: 25px;
+}
+
+.gallery {
+    flex-wrap: nowrap !important;
+    list-style: none;
+
+    transition: all linear 0.5s;
+}
+
+.gallery-link {
+    display: flex;
+}
+
+.gallery-img {
+    width: 100%;
+    border-radius: 8px;
+}
