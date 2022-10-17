@@ -85,7 +85,16 @@
     -webkit-line-clamp: 2;
 }
 
-.aa {
-    transform: translateY(20px);
-    transition: transform linear 1s;
+.sing-link {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-secondary-color);
+
+    &:hover {
+        color: var(--second-primary-color);
+    }
+}
+
+.sing-dot {
+    color: var(--text-secondary-color);
 }

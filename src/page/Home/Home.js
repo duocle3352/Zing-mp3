@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import { useState, useEffect } from 'react';
 
 import { historyData } from './historyData';
+import { suggestionData } from './suggestionData';
 import { homeService } from '~/services';
 import { SliderBox } from '~/components/SliderBox';
 import { Popper } from '~/components/Popper';
@@ -36,6 +37,15 @@ function Home() {
             <Popper title="Gần đây" link="./">
                 {historyData.map((item) => (
                     <div className={cx('history-item', 'col', 'l-1-7')} key={item.id}>
+                        <Playlist twoLine data={item} />
+                    </div>
+                ))}
+            </Popper>
+
+            {/* Suggestion */}
+            <Popper title="Có Thể Bạn Muốn Nghe" link="./">
+                {suggestionData.map((item) => (
+                    <div className={cx('suggestion-item', 'col', 'l-2-4')} key={item.id}>
                         <Playlist twoLine data={item} />
                     </div>
                 ))}

@@ -88,6 +88,16 @@ function Playlist({ data, twoLine }) {
             <Link to={data.link} className={cx('title', twoLine ? 'two-line' : 'one-line')}>
                 {data.title}
             </Link>
+            <>
+                {data?.sings &&
+                    data.sings.map((sing, index) => (
+                        <Link to="./" className={cx('sing-link')} key={index}>
+                            {sing}
+                            {data?.sings?.length > 1 && <span>, </span>}
+                        </Link>
+                    ))}
+                {data?.sings?.length > 1 && <span className={cx('sing-dot')}>...</span>}
+            </>
         </div>
     );
 }
