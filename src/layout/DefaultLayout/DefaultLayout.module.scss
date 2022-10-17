@@ -9,4 +9,6 @@
 .main {
     margin-top: 70px;
     padding: 32px 59px;
+    height: calc(100vh - 70px);
+    overflow-y: overlay;
 }

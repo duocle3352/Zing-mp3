@@ -1,8 +1,11 @@
 import classNames from 'classnames/bind';
 import { useState, useEffect } from 'react';
 
+import { historyData } from './historyData';
 import { homeService } from '~/services';
 import { SliderBox } from '~/components/SliderBox';
+import { Popper } from '~/components/Popper';
+import { Playlist } from '~/components/Playlist';
 import style from './Home.module.scss';
 
 const cx = classNames.bind(style);
@@ -26,7 +29,17 @@ function Home() {
 
     return (
         <section className={cx('wrapper')}>
-            <SliderBox data={banners} />
+            {/* banner */}
+            {banners?.items ? <SliderBox data={banners} /> : <h1>Loading...</h1>}
+
+            {/* history */}
+            <Popper title="Gần đây" link="./">
+                {historyData.map((item) => (
+                    <div className={cx('history-item', 'col', 'l-1-7')} key={item.id}>
+                        <Playlist twoLine data={item} />
+                    </div>
+                ))}
+            </Popper>
         </section>
     );
 }

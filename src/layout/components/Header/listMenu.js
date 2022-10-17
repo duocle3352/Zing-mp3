@@ -35,6 +35,7 @@ export const firstSettingMenu = [
                 subTitle: 'SQ • 128',
                 subDescription: 'Giảm sử dụng dữ liệu cho các kết nối chậm hơn.',
                 subIcon: <FontAwesomeIcon icon={faCheck} />,
+                isQuality: true,
                 lowQuality: true,
             },
             {
@@ -43,6 +44,7 @@ export const firstSettingMenu = [
                 subDescription:
                     'Kết hợp tốt nhất giữa việc sử dụng dữ liệu và chất lượng âm thanh.',
                 subIcon: <FontAwesomeIcon icon={faCheck} />,
+                isQuality: true,
                 hightQuality: true,
             },
         ],

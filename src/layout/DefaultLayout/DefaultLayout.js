@@ -1,6 +1,6 @@
 import classnames from 'classnames/bind';
 import { Header } from '../components/Header';
-import { LeftBar } from '../components/LeftBar';
+import LeftBar from '~/layout/components/LeftBar/LeftBar';
 import style from './DefaultLayout.module.scss';
 
 const cx = classnames.bind(style);
