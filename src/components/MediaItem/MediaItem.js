@@ -7,7 +7,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import { Ticker } from '~/components/Ticker';
-import { listMenu } from '~/dataOther/listMenu';
+import { listMenu } from '~/dataOther';
 import images from '~/assets/images';
 import style from './MediaItem.module.scss';
 import { MenuWrapper } from '../MenuWrapper';

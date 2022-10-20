@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const listMenu = [
+const listMenu = [
     {
         id: 1,
         leftIcon: <FontAwesomeIcon icon={faPlus} />,
@@ -73,3 +73,5 @@ export const listMenu = [
         ],
     },
 ];
+
+export default listMenu;

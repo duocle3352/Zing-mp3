@@ -85,14 +85,26 @@
     -webkit-line-clamp: 2;
 }
 
-.sing-link {
+.sing-link,
+.sing-desc {
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--text-secondary-color);
+}
 
+.sing-link {
     &:hover {
         color: var(--second-primary-color);
     }
+}
+
+.sing-desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1.36;
 }
 
 .sing-dot {

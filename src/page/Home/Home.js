@@ -1,14 +1,13 @@
 import classNames from 'classnames/bind';
 import { useState, useEffect } from 'react';
 
-import { historyData } from './historyData';
-import { suggestionData } from './suggestionData';
 import { homeService } from '~/services';
 import { SliderBox } from '~/components/SliderBox';
 import { Popper } from '~/components/Popper';
 import { Playlist } from '~/components/Playlist';
 import { Button } from '~/components/Button';
 import { MediaItem } from '~/components/MediaItem';
+import { historyData, chanel1, chanel2 } from '~/dataOther';
 import style from './Home.module.scss';
 
 const cx = classNames.bind(style);
@@ -52,18 +51,18 @@ function Home() {
             {banners?.items ? <SliderBox data={banners} /> : <h1>Loading...</h1>}
 
             {/* history */}
-            <Popper title="Gần đây" link="./">
+            <Popper title="Gần đây" link="./" showAll>
                 {historyData.map((item) => (
-                    <div className={cx('history-item', 'col', 'l-1-7')} key={item.id}>
+                    <div className={cx('col', 'l-1-7')} key={item.id}>
                         <Playlist twoLine data={item} />
                     </div>
                 ))}
             </Popper>
 
-            {/* Suggestion */}
+            {/* chanel 1 */}
             <Popper title="Có Thể Bạn Muốn Nghe" link="./">
-                {suggestionData.map((item) => (
-                    <div className={cx('suggestion-item', 'col', 'l-2-4')} key={item.id}>
+                {chanel1.map((item) => (
+                    <div className={cx('col', 'l-2-4')} key={item.id}>
                         <Playlist twoLine data={item} />
                     </div>
                 ))}
@@ -90,7 +89,7 @@ function Home() {
                 {newSong &&
                     isNewSong &&
                     newSong.map((song) => (
-                        <div className={cx('new-release', 'col', 'l-4')} key={song.encodeId}>
+                        <div className={cx('col', 'l-4')} key={song.encodeId}>
                             <MediaItem item={song} isPlayIcon isTimeLine isTick isMenu medium />
                         </div>
                     ))}
@@ -98,10 +97,19 @@ function Home() {
                 {newAlbum &&
                     !isNewSong &&
                     newAlbum.map((song) => (
-                        <div className={cx('new-release', 'col', 'l-4')} key={song.encodeId}>
+                        <div className={cx('col', 'l-4')} key={song.encodeId}>
                             <MediaItem item={song} isPlayIcon isTimeLine isMenu large />
                         </div>
                     ))}
+            </Popper>
+
+            {/* chanel 2 */}
+            <Popper title="Giai Điệu Ký Ức" link="./">
+                {chanel2.map((item) => (
+                    <div className={cx('col', 'l-2-4')} key={item.id}>
+                        <Playlist data={item} />
+                    </div>
+                ))}
             </Popper>
         </section>
     );

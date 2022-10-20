@@ -8,15 +8,17 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(style);
 
-function Popper({ title, link, children }) {
+function Popper({ title, link, showAll = false, children }) {
     return (
         <section className={cx('wrapper', 'row')}>
             <div className={cx('header', 'col')}>
                 <h2 className={cx('title')}>{title}</h2>
-                <Link className={cx('link')} to={link}>
-                    TẤT CẢ
-                    <FontAwesomeIcon className={cx('icon')} icon={faChevronRight} />
-                </Link>
+                {showAll && (
+                    <Link className={cx('link')} to={link}>
+                        TẤT CẢ
+                        <FontAwesomeIcon className={cx('icon')} icon={faChevronRight} />
+                    </Link>
+                )}
             </div>
             {children}
         </section>
@@ -26,6 +28,7 @@ function Popper({ title, link, children }) {
 Popper.propTypes = {
     title: PropTypes.string.isRequired,
     link: PropTypes.string,
+    showAll: PropTypes.bool,
     children: PropTypes.node.isRequired,
 };
 

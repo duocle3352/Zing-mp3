@@ -11,7 +11,7 @@ import 'tippy.js/dist/tippy.css';
 
 import { MenuWrapper } from '../MenuWrapper';
 import { MenuContent } from '../MenuContent';
-import { listMenu } from '~/dataOther/listMenu';
+import { listMenu } from '~/dataOther';
 import style from './Playlist.module.scss';
 
 const cx = classNames.bind(style);
@@ -98,6 +98,7 @@ function Playlist({ data, twoLine }) {
                     ))}
                 {data?.sings?.length > 1 && <span className={cx('sing-dot')}>...</span>}
             </>
+            <p className={cx('sing-desc')}>{data.description}</p>
         </div>
     );
 }
