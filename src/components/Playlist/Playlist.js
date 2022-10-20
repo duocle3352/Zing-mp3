@@ -93,12 +93,12 @@ function Playlist({ data, twoLine }) {
                     data.sings.map((sing, index) => (
                         <Link to="./" className={cx('sing-link')} key={index}>
                             {sing}
-                            {data?.sings?.length > 1 && <span>, </span>}
+                            {data?.sings?.length > 2 && <span>, </span>}
                         </Link>
                     ))}
-                {data?.sings?.length > 1 && <span className={cx('sing-dot')}>...</span>}
+                {data?.sings?.length > 2 && <span className={cx('sing-dot')}>...</span>}
             </>
-            <p className={cx('sing-desc')}>{data.description}</p>
+            {data.description && <p className={cx('sing-desc')}>{data.description}</p>}
         </div>
     );
 }

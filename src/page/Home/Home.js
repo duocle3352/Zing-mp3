@@ -7,7 +7,7 @@ import { Popper } from '~/components/Popper';
 import { Playlist } from '~/components/Playlist';
 import { Button } from '~/components/Button';
 import { MediaItem } from '~/components/MediaItem';
-import { historyData, chanel1, chanel2 } from '~/dataOther';
+import { historyData, chanel1, chanel2, chanel3 } from '~/dataOther';
 import style from './Home.module.scss';
 
 const cx = classNames.bind(style);
@@ -69,7 +69,7 @@ function Home() {
             </Popper>
 
             {/* new Release */}
-            <Popper title="Mới Phát Hành" link="./">
+            <Popper title="Mới Phát Hành" link="./" showAll>
                 <div className={cx('option-new', 'col', 'l-12')}>
                     <Button
                         primary={isNewSong}
@@ -106,6 +106,21 @@ function Home() {
             {/* chanel 2 */}
             <Popper title="Giai Điệu Ký Ức" link="./">
                 {chanel2.map((item) => (
+                    <div className={cx('col', 'l-2-4')} key={item.id}>
+                        <Playlist data={item} />
+                    </div>
+                ))}
+            </Popper>
+
+            {/* chanel 3 */}
+            <Popper
+                title="Hà Anh Tuấn"
+                supTitle="Dành Cho Fan"
+                image="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/avatars/7/a/e/9/7ae9d01726dcceef8bd7e8f146820759.jpg"
+                link="./"
+                imgTitle
+            >
+                {chanel3.map((item) => (
                     <div className={cx('col', 'l-2-4')} key={item.id}>
                         <Playlist data={item} />
                     </div>

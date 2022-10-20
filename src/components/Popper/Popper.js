@@ -8,11 +8,29 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(style);
 
-function Popper({ title, link, showAll = false, children }) {
+function Popper({ title, supTitle, link, image, showAll = false, imgTitle = false, children }) {
     return (
         <section className={cx('wrapper', 'row')}>
             <div className={cx('header', 'col')}>
-                <h2 className={cx('title')}>{title}</h2>
+                {/* text title */}
+                {!imgTitle && <h2 className={cx('title')}>{title}</h2>}
+
+                {/* image title */}
+                {imgTitle && (
+                    <div className={cx('img-title')}>
+                        <Link to="./" className={cx('title-link', 'img-title-link')}>
+                            <img className={cx('image')} src={image} alt={title} />
+                        </Link>
+                        <div className={cx('content')}>
+                            <span className={cx('sup-title')}>{supTitle}</span>
+                            <Link to="./" className={cx('title', 'title-link')}>
+                                {title}
+                            </Link>
+                        </div>
+                    </div>
+                )}
+
+                {/* show all link */}
                 {showAll && (
                     <Link className={cx('link')} to={link}>
                         TẤT CẢ
@@ -27,8 +45,11 @@ function Popper({ title, link, showAll = false, children }) {
 
 Popper.propTypes = {
     title: PropTypes.string.isRequired,
+    supTitle: PropTypes.string,
     link: PropTypes.string,
+    image: PropTypes.string,
     showAll: PropTypes.bool,
+    imgTitle: PropTypes.bool,
     children: PropTypes.node.isRequired,
 };
 
