@@ -1,21 +1,160 @@
 .wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--alpha-bg);
+        border-radius: 4px;
+    }
+
+    &:hover .menu__btn {
+        display: block;
+    }
+}
+
+.wrapper.wrapper__sup {
+    &:hover .image {
+        filter: brightness(0.5);
+    }
+
+    &:hover .play-icon {
+        display: block;
+    }
+}
+
+.img-box {
+    position: relative;
+    display: flex;
+}
+
+.image {
+    width: 52px;
+    height: 52px;
+    border-radius: 4px;
+}
+
+.image-disk {
+    display: none;
+    position: absolute;
+    width: 100%;
+    right: -10px;
+    z-index: -1;
+}
+
+.play-icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+.body {
+    margin-left: 10px;
+}
+
+.title-box {
     display: flex;
     align-items: center;
 }
 
-.media-img {
-    width: 52px;
-    height: 52px;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-.media-title {
+.title {
     font-size: 1.4rem;
+    font-weight: 500;
     color: var(--primary-color);
+    margin-right: 6px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
-.media-subtitle {
+.sing-tick {
+    position: unset;
+    transform: none;
+
+    width: 26px;
+    height: 12px;
+    color: black !important;
+}
+
+.subtitle {
     font-size: 1.2rem;
+    font-weight: 500;
     color: var(--text-secondary-color);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+// size
+// M
+.wrapper.medium {
+    padding: 10px;
+
+    .image {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+// L
+.wrapper.large {
+    padding: 10px;
+
+    .body {
+        margin-left: 26px;
+    }
+
+    .image {
+        width: 87px;
+        height: 87px;
+    }
+
+    .image-disk {
+        display: block;
+    }
+
+    .play-icon {
+        font-size: 2.4rem;
+    }
+
+    .subtitle {
+        line-height: 2.2rem;
+    }
+
+    &:hover .image-disk {
+        transform: rotate(90deg);
+        transition: all linear 0.3s;
+    }
+}
+
+// menu
+.menu__btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+    font-size: 1.6rem;
+    color: currentColor;
+    background-color: transparent;
+
+    &:hover {
+        background-color: var(--alpha-bg);
+        border-radius: 999px;
+    }
 }

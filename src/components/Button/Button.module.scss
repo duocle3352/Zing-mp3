@@ -2,18 +2,19 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-family);
     font-size: 1.2rem;
-    font-weight: 600;
-    padding: 9px 16px;
-    min-width: 100px;
+    font-weight: 400;
+    padding: 4px 24px;
+    min-width: 80px;
     border-radius: 999px;
     cursor: pointer;
-    background-color: var(--white);
+    background-color: transparent;
     border: 1px solid transparent;
     user-select: none;
 
     + .wrapper {
-        margin-left: 8px;
+        margin-left: 15px;
     }
 
     &.disabled {
@@ -47,28 +48,21 @@
 }
 
 .primary {
-    color: var(--white);
-    background-color: var(--primary);
-    border-color: var(--primary);
+    color: var(--primary-color);
+    background-color: var(--second-primary-color);
+    border-color: var(--second-primary-color);
 
     &:hover {
-        border-color: var(--primary);
-        background: linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.06),
-                rgba(0, 0, 0, 0.06)
-            ),
-            #fe2c55;
+        opacity: 0.8;
     }
 }
 
 .outline {
-    color: var(--primary);
-    border-color: currentColor;
+    color: var(--primary-color);
+    border-color: var(--border-primary);
 
     &:hover {
-        border-color: currentColor;
-        background-color: rgba(254, 44, 85, 0.06);
+        opacity: 0.8;
     }
 }
 

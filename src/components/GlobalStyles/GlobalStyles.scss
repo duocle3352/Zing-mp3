@@ -3,6 +3,9 @@
 @import 'GridSytem.scss';
 
 :root {
+    // font family
+    --font-family: 'Inter', sans-serif;
+    // color
     --black: #32323d;
     --primary-color: #fff;
     --second-primary-color: #7200a1;
@@ -31,12 +34,13 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizespeed;
     color: var(--text-color);
     background-color: #170f23;
+    user-select: none;
 }
 
 // css scroll bar

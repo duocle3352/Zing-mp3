@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsis, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faCirclePlay, faHeart as faReHeart } from '@fortawesome/free-regular-svg-icons';
@@ -11,7 +11,7 @@ import 'tippy.js/dist/tippy.css';
 
 import { MenuWrapper } from '../MenuWrapper';
 import { MenuContent } from '../MenuContent';
-import { listMenu } from './listMenu';
+import { listMenu } from '~/dataOther/listMenu';
 import style from './Playlist.module.scss';
 
 const cx = classNames.bind(style);
@@ -107,4 +107,4 @@ Playlist.propTypes = {
     twoLine: PropTypes.bool,
 };
 
-export default Playlist;
+export default memo(Playlist);

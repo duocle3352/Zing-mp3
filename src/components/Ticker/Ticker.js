@@ -4,10 +4,10 @@ import style from './Ticker.module.scss';
 
 const cx = classnames.bind(style);
 
-function Ticker({ title, color, top, right }) {
+function Ticker({ title, color, top, right, subClass }) {
     return (
-        <div
-            className={cx('wrapper')}
+        <span
+            className={cx('wrapper', subClass)}
             style={{
                 backgroundColor: `${color}`,
                 top: `${top}`,
@@ -15,7 +15,7 @@ function Ticker({ title, color, top, right }) {
             }}
         >
             <span className={cx('tick-title')}>{title}</span>
-        </div>
+        </span>
     );
 }
 
@@ -24,6 +24,7 @@ Ticker.propTypes = {
     color: PropTypes.string.isRequired,
     top: PropTypes.string.isRequired,
     right: PropTypes.string.isRequired,
+    subClass: PropTypes.string,
 };
 
 export default Ticker;

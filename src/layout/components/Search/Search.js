@@ -72,11 +72,7 @@ function Search() {
                 offset={[0, 0]}
                 onClickOutside={() => handleShowResult(false)}
                 render={(attrs) => (
-                    <div
-                        className={cx('search-result-content')}
-                        tabIndex="-1"
-                        {...attrs}
-                    >
+                    <div className={cx('search-result-content')} tabIndex="-1" {...attrs}>
                         <div className={cx('search-result-box')}>
                             {/* search title */}
                             <SearchResultTitle title="Từ khóa liên quan" />
@@ -103,29 +99,17 @@ function Search() {
                                     {/* artistsResult */}
                                     {artistsResult.length > 0 &&
                                         // eslint-disable-next-line array-callback-return
-                                        artistsResult.map((result) => {
+                                        artistsResult.map((artist) => {
                                             if (
-                                                result.thumbnail !==
+                                                artist.thumbnail !==
                                                 'https://photo-zmp3.zmdcdn.me/artist_default_2.png'
                                             ) {
                                                 return (
                                                     <li
-                                                        className={cx(
-                                                            'result-item',
-                                                        )}
-                                                        key={result.id}
+                                                        className={cx('result-item')}
+                                                        key={artist.id}
                                                     >
-                                                        <MediaItem
-                                                            image={
-                                                                result.thumbnail
-                                                            }
-                                                            alt={result.name}
-                                                            name={result.name}
-                                                            follow={
-                                                                result.totalFollow
-                                                            }
-                                                            isSing
-                                                        />
+                                                        <MediaItem item={artist} isSing />
                                                     </li>
                                                 );
                                             }
@@ -133,38 +117,20 @@ function Search() {
 
                                     {/* songsResult */}
                                     {songsResult.length > 0 &&
-                                        songsResult.map((result) => (
-                                            <li
-                                                className={cx('result-item')}
-                                                key={result.encodeId}
-                                            >
-                                                <MediaItem
-                                                    image={result.thumbnail}
-                                                    alt={result.title}
-                                                    name={result.title}
-                                                    singName={
-                                                        result.artistsNames
-                                                    }
-                                                />
+                                        songsResult.map((song) => (
+                                            <li className={cx('result-item')} key={song.encodeId}>
+                                                <MediaItem item={song} isPlayIcon />
                                             </li>
                                         ))}
 
                                     {/* playlistsResult */}
                                     {playlistsResult.length > 0 &&
-                                        playlistsResult.map((result, index) => (
+                                        playlistsResult.map((playlists) => (
                                             <li
                                                 className={cx('result-item')}
-                                                key={result.encodeId}
+                                                key={playlists.encodeId}
                                             >
-                                                <MediaItem
-                                                    image={result.thumbnail}
-                                                    alt={result.title}
-                                                    name={result.title}
-                                                    singName={
-                                                        result.artistsNames
-                                                    }
-                                                    isPlaylist
-                                                />
+                                                <MediaItem item={playlists} isPlaylist />
                                             </li>
                                         ))}
                                 </ul>
@@ -185,10 +151,7 @@ function Search() {
                         onChange={(e) => handleInput(e.target.value)}
                         onFocus={() => handleShowResult(true)}
                     />
-                    <button
-                        className={cx('search-clear-btn')}
-                        onClick={handleClear}
-                    >
+                    <button className={cx('search-clear-btn')} onClick={handleClear}>
                         <FontAwesomeIcon icon={faXmark} />
                     </button>
                 </div>

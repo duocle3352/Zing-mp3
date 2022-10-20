@@ -65,14 +65,8 @@
 }
 
 .result-item {
-    padding: 8px 10px;
     margin-right: 6px;
     list-style: none;
-
-    &:hover {
-        background-color: var(--alpha-bg);
-        border-radius: 4px;
-    }
 }
 
 .search-loading {

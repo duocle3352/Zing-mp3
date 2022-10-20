@@ -5,13 +5,13 @@
 
     position: absolute;
     transform: translateY(-50%);
+    color: var(--primary-color);
     width: 34px;
     height: 16px;
     border-radius: 4px;
 }
 
 .tick-title {
-    color: var(--primary-color);
     font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;

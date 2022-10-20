@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import style from './SliderBox.module.scss';
@@ -92,4 +92,4 @@ SliderBox.propTypes = {
     data: PropTypes.object.isRequired,
 };
 
-export default SliderBox;
+export default memo(SliderBox);

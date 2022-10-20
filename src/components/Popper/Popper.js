@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Popper.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,4 +29,4 @@ Popper.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export default Popper;
+export default memo(Popper);
