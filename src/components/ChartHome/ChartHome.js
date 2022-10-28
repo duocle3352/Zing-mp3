@@ -36,12 +36,15 @@ function ChartHome() {
         line3: [],
     });
 
+    const [weekChart, setWeekChart] = useState({});
+
     // fetch api
     useEffect(() => {
         const fetchApi = async () => {
             const result = await chartHomeService();
             const [key1, key2, key3] = Object.keys(result.RTChart.chart.items);
 
+            console.log(result);
             setChart({
                 chartItems: result.RTChart.items,
                 totalScore: result.RTChart.chart.totalScore,
@@ -51,6 +54,8 @@ function ChartHome() {
                 line2: result.RTChart.chart.items[key2],
                 line3: result.RTChart.chart.items[key3],
             });
+
+            setWeekChart(result.weekChart);
         };
 
         fetchApi();
@@ -106,19 +111,19 @@ function ChartHome() {
         labels,
         datasets: [
             {
-                label: chartSongList.chartSong1.title,
+                label: chartSongList?.chartSong1.title,
                 data: handleData(chart.line1),
                 borderColor: '#4a90e2',
                 backgroundColor: 'white',
             },
             {
-                label: chartSongList.chartSong2.title,
+                label: chartSongList?.chartSong2.title,
                 data: handleData(chart.line2),
                 borderColor: '#50e3c2',
                 backgroundColor: 'white',
             },
             {
-                label: chartSongList.chartSong3.title,
+                label: chartSongList?.chartSong3.title,
                 data: handleData(chart.line3),
                 borderColor: '#e35050',
                 backgroundColor: 'white',
@@ -127,48 +132,86 @@ function ChartHome() {
     };
 
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('bg')} style={{ backgroundImage: `url(${images.bgChart})` }} />
-            <div className={cx('sub-bg')} />
-            <div className={cx('title')}>
-                <Link className={cx('title__main')}>#zingchart</Link>
-                <Link className={cx('title__btn', 'br-999')}>
-                    <FontAwesomeIcon icon={faPlay} />
-                </Link>
-            </div>
-            <div className={cx('row')}>
-                <div className={cx('list-item', 'col', 'l-5')}>
-                    {newChart ? (
-                        newChart.map((song, index) => {
-                            const rate = Math.round((song.score / chart.totalScore) * 100);
+        <>
+            <div className={cx('wrapper')}>
+                {/* bg */}
+                <div className={cx('bg')} style={{ backgroundImage: `url(${images.bgChart})` }} />
+                <div className={cx('sub-bg')} />
+                {/* title */}
+                <div className={cx('title')}>
+                    <Link className={cx('title__main')}>#zingchart</Link>
+                    <Link className={cx('title__btn', 'br-999')}>
+                        <FontAwesomeIcon icon={faPlay} />
+                    </Link>
+                </div>
+                {/* chart top */}
+                <div className={cx('row')}>
+                    {/* top 3 */}
+                    <div className={cx('list-item', 'col', 'l-5')}>
+                        {newChart ? (
+                            newChart.map((song, index) => {
+                                const rate = Math.round((song.score / chart.totalScore) * 100);
 
-                            return (
-                                <div className={cx('item')} key={song.encodeId}>
-                                    <MediaItem
-                                        item={song}
-                                        isPlayIcon
-                                        rateNumber={index + 1}
-                                        rate={`${rate}%`}
-                                        medium
-                                    />
-                                </div>
-                            );
-                        })
-                    ) : (
-                        <h1>Loading...</h1>
-                    )}
+                                return (
+                                    <div className={cx('item')} key={song.encodeId}>
+                                        <MediaItem
+                                            item={song}
+                                            isPlayIcon
+                                            rateNumber={index + 1}
+                                            rate={`${rate}%`}
+                                            medium
+                                        />
+                                    </div>
+                                );
+                            })
+                        ) : (
+                            <h1>Loading...</h1>
+                        )}
 
-                    <div className={cx('more-btn')}>
-                        <Button outline white medium size14>
-                            Xem thêm
-                        </Button>
+                        <div className={cx('more-btn')}>
+                            <Button outline white medium size14>
+                                Xem thêm
+                            </Button>
+                        </div>
+                    </div>
+                    {/* chart */}
+                    <div className={cx('chart', 'col', 'l-7')}>
+                        <Line options={options} data={data} />
                     </div>
                 </div>
-                <div className={cx('chart', 'col', 'l-7')}>
-                    <Line options={options} data={data} />
+            </div>
+
+            {/* week chart */}
+            <div className={cx('week-chart', 'row')}>
+                <div className={cx('col', 'l-4')}>
+                    <Link className={cx('week-chart-link')} to="./">
+                        <img
+                            className={cx('week-chart-img')}
+                            src={weekChart?.vn?.cover}
+                            alt="weekChart"
+                        />
+                    </Link>
+                </div>
+                <div className={cx('col', 'l-4')}>
+                    <Link className={cx('week-chart-link')} to="./">
+                        <img
+                            className={cx('week-chart-img')}
+                            src={weekChart?.us?.cover}
+                            alt="weekChart"
+                        />
+                    </Link>
+                </div>
+                <div className={cx('col', 'l-4')}>
+                    <Link className={cx('week-chart-link')} to="./">
+                        <img
+                            className={cx('week-chart-img')}
+                            src={weekChart?.korea?.cover}
+                            alt="weekChart"
+                        />
+                    </Link>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

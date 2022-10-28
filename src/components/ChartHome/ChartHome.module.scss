@@ -77,3 +77,23 @@
 .more-btn {
     text-align: center;
 }
+
+// week-chart
+.week-chart {
+    margin-top: 28px;
+}
+
+.week-chart-link {
+    display: flex;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.week-chart-img {
+    width: 100%;
+    transition: transform linear 0.5s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
