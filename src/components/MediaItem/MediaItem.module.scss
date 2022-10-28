@@ -3,11 +3,11 @@
     display: flex;
     align-items: center;
     padding: 8px 10px;
+    border-radius: 4px;
     cursor: pointer;
 
     &:hover {
         background-color: var(--alpha-bg);
-        border-radius: 4px;
     }
 
     &:hover .menu__btn {
@@ -23,6 +23,30 @@
     &:hover .play-icon {
         display: block;
     }
+}
+
+.wrapper.wrapper__bg {
+    background-color: var(--alpha-bg);
+}
+
+.rate-number {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: rgba(74, 144, 226, 0);
+    margin-right: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.rate {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.56;
 }
 
 .img-box {

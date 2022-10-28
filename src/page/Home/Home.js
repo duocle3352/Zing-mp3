@@ -7,6 +7,7 @@ import { Popper } from '~/components/Popper';
 import { Playlist } from '~/components/Playlist';
 import { Button } from '~/components/Button';
 import { MediaItem } from '~/components/MediaItem';
+import { ChartHome } from '~/components/ChartHome';
 import { historyData, chanel1, chanel2, chanel3 } from '~/dataOther';
 import style from './Home.module.scss';
 
@@ -126,6 +127,9 @@ function Home() {
                     </div>
                 ))}
             </Popper>
+
+            {/* #zingchart home*/}
+            <ChartHome />
         </section>
     );
 }

@@ -17,6 +17,10 @@
         margin-left: 15px;
     }
 
+    &:hover {
+        opacity: 0.8;
+    }
+
     &.disabled {
         pointer-events: none;
         opacity: 0.5;
@@ -35,42 +39,41 @@
 }
 
 // Button types
-.rounded {
-    color: rgba(22, 24, 35, 0.75);
-    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-    border-color: rgba(22, 24, 35, 0.12);
-    border-radius: 999px;
+// .rounded {
+//     color: rgba(22, 24, 35, 0.75);
+//     box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+//     border-color: rgba(22, 24, 35, 0.12);
+//     border-radius: 999px;
 
-    &:hover {
-        border-color: rgba(22, 24, 35, 0.2);
-        background-color: rgba(22, 24, 35, 0.03);
-    }
-}
+//     &:hover {
+//         border-color: rgba(22, 24, 35, 0.2);
+//         background-color: rgba(22, 24, 35, 0.03);
+//     }
+// }
 
 .primary {
     color: var(--primary-color);
     background-color: var(--second-primary-color);
     border-color: var(--second-primary-color);
-
-    &:hover {
-        opacity: 0.8;
-    }
 }
 
+// outline border-primary
 .outline {
     color: var(--primary-color);
     border-color: var(--border-primary);
-
-    &:hover {
-        opacity: 0.8;
-    }
 }
 
-.text {
-    &:hover {
-        text-decoration: underline;
-    }
+// outline border-white
+.white {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
+
+// .text {
+//     &:hover {
+//         text-decoration: underline;
+//     }
+// }
 
 .vip {
     color: var(--black);
@@ -78,12 +81,17 @@
 }
 
 // Button size
-.small {
-    min-width: 88px;
-    padding: 4px 16px;
+.medium {
+    min-width: 90px;
+    padding: 5px 25px;
 }
 
 .large {
-    min-width: 140px;
+    min-width: 120px;
     padding: 6px 35px;
+}
+
+.size14 {
+    font-size: 1.4rem;
+    line-height: 1.5;
 }

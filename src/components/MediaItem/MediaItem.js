@@ -18,17 +18,29 @@ const cx = classNames.bind(style);
 
 function MediaItem({
     item,
+    rate,
+    rateNumber,
     isSing = false,
     isPlaylist = false,
     isTimeLine = false,
     isPlayIcon = false,
     isTick = false,
     isMenu = false,
+    // size
     medium = false,
     large = false,
 }) {
     const newFollow = (item.totalFollow / 1000).toFixed(0);
     const [showOtherMenu, setShowOtherMenu] = useState(false);
+    let rateNumberColor;
+
+    if (rateNumber === 1) {
+        rateNumberColor = '#4a90e2';
+    } else if (rateNumber === 2) {
+        rateNumberColor = '#50e3c2';
+    } else {
+        rateNumberColor = '#e35050';
+    }
 
     const toggleShowOtherMenu = () => {
         setShowOtherMenu(!showOtherMenu);
@@ -42,8 +54,20 @@ function MediaItem({
                 isPlayIcon ? 'wrapper__sup' : '',
                 medium ? 'medium' : '',
                 large ? 'large' : '',
+                rate ? 'wrapper__bg' : '',
             )}
         >
+            {/* ratings number*/}
+            {rateNumber && (
+                <span
+                    className={cx('rate-number')}
+                    style={{ WebkitTextStroke: `1px ${rateNumberColor}` }}
+                >
+                    {rateNumber}
+                </span>
+            )}
+
+            {/* image */}
             <div className={cx('img-box')}>
                 <img
                     className={cx('image', isSing ? 'br-999' : '')}
@@ -59,6 +83,7 @@ function MediaItem({
                     </span>
                 )}
             </div>
+            {/* body */}
             <div className={cx('body')}>
                 <div className={cx('title-box')}>
                     <h3 className={cx('title')}>{item.title || item.name}</h3>
@@ -84,6 +109,9 @@ function MediaItem({
                 {/* time line */}
                 {isTimeLine && <h3 className={cx('subtitle')}>0 giờ trước</h3>}
             </div>
+
+            {/* ratings % */}
+            {rate && <span className={cx('rate')}>{rate}</span>}
 
             {/* other menu*/}
             {isMenu && (
@@ -122,6 +150,8 @@ MediaItem.propTypes = {
     isPlayIcon: PropTypes.bool,
     isTick: PropTypes.bool,
     isMenu: PropTypes.bool,
+    rate: PropTypes.string,
+    rateNumber: PropTypes.number,
     medium: PropTypes.bool,
     large: PropTypes.bool,
 };
