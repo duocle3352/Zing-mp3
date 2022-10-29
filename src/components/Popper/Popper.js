@@ -8,9 +8,18 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(style);
 
-function Popper({ title, supTitle, link, image, showAll = false, imgTitle = false, children }) {
+function Popper({
+    title,
+    supTitle,
+    link,
+    image,
+    showAll = false,
+    imgTitle = false,
+    classes,
+    children,
+}) {
     return (
-        <section className={cx('wrapper', 'row')}>
+        <section className={cx('wrapper', 'row', classes)}>
             <div className={cx('header', 'col')}>
                 {/* text title */}
                 {!imgTitle && <h2 className={cx('title')}>{title}</h2>}
@@ -50,6 +59,7 @@ Popper.propTypes = {
     image: PropTypes.string,
     showAll: PropTypes.bool,
     imgTitle: PropTypes.bool,
+    classes: PropTypes.string,
     children: PropTypes.node.isRequired,
 };
 

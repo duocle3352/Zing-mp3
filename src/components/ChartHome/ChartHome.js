@@ -17,9 +17,10 @@ import { Line } from 'react-chartjs-2';
 
 import { chartHomeService } from '~/services';
 import images from '~/assets/images';
-import style from './ChartHome.module.scss';
 import { MediaItem } from '~/components/MediaItem';
 import { Button } from '../Button';
+import { Loading } from '../Loading';
+import style from './ChartHome.module.scss';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -44,7 +45,6 @@ function ChartHome() {
             const result = await chartHomeService();
             const [key1, key2, key3] = Object.keys(result.RTChart.chart.items);
 
-            console.log(result);
             setChart({
                 chartItems: result.RTChart.items,
                 totalScore: result.RTChart.chart.totalScore,
@@ -131,6 +131,12 @@ function ChartHome() {
         ],
     };
 
+    const renderWeekChart = (local) => (
+        <Link className={cx('week-chart-link')} to="./">
+            <img className={cx('week-chart-img')} src={local?.cover} alt="weekChart" />
+        </Link>
+    );
+
     return (
         <>
             <div className={cx('wrapper')}>
@@ -165,7 +171,7 @@ function ChartHome() {
                                 );
                             })
                         ) : (
-                            <h1>Loading...</h1>
+                            <Loading />
                         )}
 
                         <div className={cx('more-btn')}>
@@ -183,33 +189,9 @@ function ChartHome() {
 
             {/* week chart */}
             <div className={cx('week-chart', 'row')}>
-                <div className={cx('col', 'l-4')}>
-                    <Link className={cx('week-chart-link')} to="./">
-                        <img
-                            className={cx('week-chart-img')}
-                            src={weekChart?.vn?.cover}
-                            alt="weekChart"
-                        />
-                    </Link>
-                </div>
-                <div className={cx('col', 'l-4')}>
-                    <Link className={cx('week-chart-link')} to="./">
-                        <img
-                            className={cx('week-chart-img')}
-                            src={weekChart?.us?.cover}
-                            alt="weekChart"
-                        />
-                    </Link>
-                </div>
-                <div className={cx('col', 'l-4')}>
-                    <Link className={cx('week-chart-link')} to="./">
-                        <img
-                            className={cx('week-chart-img')}
-                            src={weekChart?.korea?.cover}
-                            alt="weekChart"
-                        />
-                    </Link>
-                </div>
+                <div className={cx('col', 'l-4')}>{renderWeekChart(weekChart?.vn)}</div>
+                <div className={cx('col', 'l-4')}>{renderWeekChart(weekChart?.us)}</div>
+                <div className={cx('col', 'l-4')}>{renderWeekChart(weekChart?.korea)}</div>
             </div>
         </>
     );
