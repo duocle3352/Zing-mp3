@@ -4,8 +4,9 @@ import { Popper } from '~/components/Popper';
 import { Playlist } from '~/components/Playlist';
 import { ChartHome } from '~/components/ChartHome';
 import { NewRelease } from '~/components/NewRelease';
-import { historyData, chanel1, chanel2, chanel3, listZingChoice } from '~/dataOther';
+import { historyData, chanel1, chanel2, chanel3 } from '~/dataOther';
 import style from './Home.module.scss';
+import { ZingChoice } from '~/components/ZingChoice';
 
 const cx = classNames.bind(style);
 
@@ -64,23 +65,7 @@ function Home() {
             <ChartHome />
 
             {/* zing choice */}
-            {/* <Popper title="Zing Choice" classes={cx('choice-container')}>
-                <div className={cx('choice-content')}>
-                    {listZingChoice.map((item) => (
-                        <div key={item.id} className={cx('choice-item', 'col', 'l-1-7')}>
-                            <a href="./" className={cx('choice-link')}>
-                                <img
-                                    className={cx('choice-img')}
-                                    src={item.image}
-                                    alt={item.keyName}
-                                />
-                            </a>
-                        </div>
-                    ))}
-
-                    <button></button>
-                </div>
-            </Popper> */}
+            <ZingChoice />
         </section>
     );
 }

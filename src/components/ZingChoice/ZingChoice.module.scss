@@ -1,0 +1,46 @@
+.wrapper {
+    overflow: hidden;
+
+    position: relative;
+    margin-top: 48px;
+}
+
+.container {
+    display: flex;
+    transition: transform linear 0.3s;
+}
+
+.link {
+    display: flex;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.img {
+    width: 100%;
+}
+
+.control {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: unset;
+    transform: translateY(-50%);
+
+    font-size: 1.8rem;
+    width: 38px;
+    height: 38px;
+}
+
+.control.control__right {
+    left: unset;
+    right: 0;
+}
+
+.control.control__disable {
+    opacity: 0.1;
+    cursor: default;
+    user-select: none;
+}
